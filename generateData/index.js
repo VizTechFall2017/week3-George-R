@@ -129,9 +129,9 @@ svg.selectAll('circle')
 
 var myArray = [];
 
-for (i=0; i < 100; i++) {
+for (i=0; i < 200; i++) {
 
-  var object = {cx: Math.random() * 400, cy: i * i, r : 10};
+  var object = {cx: i * i * Math.random(), cy: 10 + i * i * Math.random(), r : 1.5*i};
 
   myArray.push(object);
 
@@ -156,8 +156,13 @@ svg.selectAll('circle')
 
   })
 
+.attr("fill", function() { return "hsl(" + Math.random() * 360 + ", 100%, 75%)"
+
+})
+
+
   .attr('fill', function(d){
-    return d.color;
+    return randomColor();
 
   });
 
